@@ -4,7 +4,7 @@ namespace B3none\Cache;
 
 class CacheClient
 {
-    const CACHE_DIR = "/tmp/MelonCartel/cache";
+    const CACHE_DIR = "/tmp/B3none/cache";
 
     /**
      * @param string $id
@@ -42,15 +42,15 @@ class CacheClient
      * @param string $id
      * @param int $minutes
      * @return bool
-     * @throws \Exception
      */
     public function isFreshEnough(string $id, int $minutes = 30) : bool
     {
         $cachedData = $this->getCache($id);
 
         if (!$cachedData) {
-            throw new \Exception("No cache file found.");
+            return false;
         }
+
         $difference = $cachedData['last-modified'] - time();
         $difference = ($difference / 1000) / 60;
 

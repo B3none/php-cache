@@ -1,13 +1,7 @@
-# PHP Cache
-A super simple PHP caching layer.
+<?php
 
-# Installation
-`composer require b3none/php-cache`
+include('vendor/autoload.php');
 
-# Example
-The following is an extract from the [example.php](https://github.com/b3none/php-cache/master/example.php)
-
-```php
 $cacheClient = new \B3none\Cache\CacheClient();
 
 $cacheId = "b3none";
@@ -23,4 +17,3 @@ if ($cacheClient->hasCache($cacheId) && $cacheClient->isFreshEnough($cacheId, 5)
     ];
     $cacheClient->setCache($cacheId, $dataToCache);
 }
-```
