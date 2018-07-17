@@ -1,0 +1,16 @@
+{
+  "name": "b3none/php-cache",
+  "description": "A super simple PHP caching layer.",
+  "type": "library",
+  "authors": [
+    {
+      "name": "b3none",
+      "email": "ablackham2000@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "B3none\\Cache\\": "src/"
+    }
+  }
+}
