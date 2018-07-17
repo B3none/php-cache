@@ -5,7 +5,7 @@ A super simple PHP caching layer.
 `composer require b3none/php-cache`
 
 # Example
-The following is an extract from the [example.php](https://github.com/b3none/php-cache/master/example.php)
+The following is an extract from the [example.php](https://github.com/b3none/php-cache/blob/master/example.php)
 
 ```php
 $cacheClient = new \B3none\Cache\CacheClient();
