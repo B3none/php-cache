@@ -20,7 +20,7 @@ class CacheClient
 
     protected function setupCacheDirectory()
     {
-        $directoriesToCreate = explode($this->cacheDir, "/");
+        $directoriesToCreate = explode("/", $this->cacheDir);
 
         $directoryToCheck = "";
 

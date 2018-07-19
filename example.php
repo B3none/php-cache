@@ -2,7 +2,8 @@
 
 include('vendor/autoload.php');
 
-$cacheClient = new \B3none\Cache\CacheClient();
+// We can choose to specify the cache dir in the constructor.
+$cacheClient = new \B3none\Cache\CacheClient('/tmp/B3none/cache');
 
 $cacheId = "b3none";
 if ($cacheClient->hasCache($cacheId) && $cacheClient->isFreshEnough($cacheId, 5)) {
