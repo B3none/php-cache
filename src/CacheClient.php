@@ -4,7 +4,19 @@ namespace B3none\Cache;
 
 class CacheClient
 {
-    const CACHE_DIR = "/tmp/B3none/cache";
+    const CACHE_DIR = "/tmp/B3none";
+
+    /**
+     * CacheClient constructor.
+     * @param string|null $id
+     * @param array $cacheValue
+     */
+    public function __construct(string $id = null, array $cacheValue = [])
+    {
+        if ($id !== null) {
+            $this->setCache($id, $cacheValue);
+        }
+    }
 
     /**
      * @param string $id
