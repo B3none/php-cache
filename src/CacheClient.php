@@ -4,7 +4,32 @@ namespace B3none\Cache;
 
 class CacheClient
 {
-    const CACHE_DIR = "/tmp/B3none/cache";
+    /**
+     * @var string
+     */
+    protected $cacheDir = "/tmp/B3none/cache";
+
+    public function __construct($cacheDir = null)
+    {
+        if ($cacheDir !== null) {
+            $this->cacheDir = $cacheDir;
+        }
+
+        $this->setupCacheDirectory();
+    }
+
+    protected function setupCacheDirectory()
+    {
+        $directoriesToCreate = explode($this->cacheDir, "/");
+
+        $directoryToCheck = "";
+
+        foreach ($directoriesToCreate as $directory) {
+            if (!is_dir($directoryToCheck .= "/{$directory}")) {
+                mkdir($directoryToCheck);
+            }
+        }
+    }
 
     /**
      * @param string $id
@@ -12,11 +37,11 @@ class CacheClient
      */
     public function setCache(string $id, array $cacheValue) : void
     {
-        if (!is_dir(self::CACHE_DIR)) {
-            mkdir(self::CACHE_DIR);
+        if (!is_dir($this->cacheDir)) {
+            mkdir($this->cacheDir);
         }
 
-        $cacheFile = self::CACHE_DIR . "/$id.json";
+        $cacheFile = $this->cacheDir . "/$id.json";
         if (file_exists($cacheFile)) {
             unlink($cacheFile);
         }
@@ -34,7 +59,7 @@ class CacheClient
      */
     public function hasCache(string $id) : bool
     {
-        $cacheFile = self::CACHE_DIR . "/$id.json";
+        $cacheFile = $this->cacheDir . "/$id.json";
         return file_exists($cacheFile);
     }
 
@@ -63,7 +88,7 @@ class CacheClient
      */
     public function getCache(string $id) : array
     {
-        $cacheFile = self::CACHE_DIR . "/$id.json";
+        $cacheFile = $this->cacheDir . "/$id.json";
         return json_decode(file_get_contents($cacheFile), true);
     }
 }
