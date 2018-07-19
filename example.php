@@ -17,3 +17,8 @@ if ($cacheClient->hasCache($cacheId) && $cacheClient->isFreshEnough($cacheId, 5)
     ];
     $cacheClient->setCache($cacheId, $dataToCache);
 }
+
+// Alternatively you can just create the cache with the constructor.
+new \B3none\Cache\CacheClient('test', [
+    'meme' => true
+]);
