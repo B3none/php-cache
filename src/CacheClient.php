@@ -13,7 +13,7 @@ class CacheClient
      */
     public function __construct(string $id = null, array $cacheValue = [])
     {
-        if ($id !== null) {
+        if ($id !== null && $cacheValue !== []) {
             $this->setCache($id, $cacheValue);
         }
     }
