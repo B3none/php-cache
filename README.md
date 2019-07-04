@@ -1,6 +1,9 @@
 # PHP Cache
 A super simple PHP caching layer.
 
+# Author
+[B3none](https://b3none.co.uk/) - Developer / Maintainer
+
 # Installation
 `composer require b3none/php-cache`
 
